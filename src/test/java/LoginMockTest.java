@@ -99,7 +99,7 @@ public class LoginMockTest {
 				fail();
 			}
 			
-			ArgumentCaptor<User> userCaptor = ArgumentCaptor.forClass(User.class);
+			
 			ArgumentCaptor<String> username = ArgumentCaptor.forClass(String.class);
 		
 			
@@ -131,7 +131,7 @@ public class LoginMockTest {
 				// TODO Auto-generated catch block
 				assertTrue(true);
 			}
-			ArgumentCaptor<User> userCaptor = ArgumentCaptor.forClass(User.class);
+			
 			ArgumentCaptor<String> username = ArgumentCaptor.forClass(String.class);
 		
 			

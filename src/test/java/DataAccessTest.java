@@ -63,7 +63,7 @@ public class DataAccessTest {
 		   }
 	@Test
 	//sut.createQuestion:  The event has NOT one question with a queryText. 
-	public void test2() {
+	public void test2() { 
 		try {
 			
 			//define paramaters

@@ -39,15 +39,15 @@ public class TestFacadeImplementation {
 
 		}
 		
-		public User addUser(RegisteredUser u) {
+		public RegisteredUser addUser(RegisteredUser u) {
 			dbManagerTest.open();
-			User us= dbManagerTest.insertRegisteredUser(u);
+			RegisteredUser us= dbManagerTest.insertRegisteredUser(u);
 			dbManagerTest.close();
 			return us;
 		}
 		
 		
-		public boolean removeUser(RegisteredUser u) {
+		public boolean removeUser(RegisteredUser u) { 
 			dbManagerTest.open();
 			boolean b = dbManagerTest.removeRegisteredUser(u);
 			dbManagerTest.close();

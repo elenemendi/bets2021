@@ -2,11 +2,13 @@ package test.dataAccess;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
 
 import configuration.ConfigXML;
 import domain.Event;
@@ -83,7 +85,10 @@ public class TestDataAccess {
 		
 		public boolean removeRegisteredUser(RegisteredUser u) {
 			
-			User us = db.find(RegisteredUser.class, u.getUsername());
+			TypedQuery<RegisteredUser> query = db.createQuery("SELECT ru FROM User ru WHERE ru.username=?1", RegisteredUser.class);
+			query.setParameter(1, u.getUsername());
+			List<RegisteredUser> list = query.getResultList();
+			RegisteredUser us = list.get(0);
 			if(us!=null) {
 				db.getTransaction().begin();
 				db.remove(us);
@@ -94,7 +99,7 @@ public class TestDataAccess {
 			}
 		}
 		
-		public User insertRegisteredUser(RegisteredUser u) {
+		public RegisteredUser insertRegisteredUser(RegisteredUser u) {
 			db.getTransaction().begin();
 			db.persist(u);
 			db.getTransaction().commit();
