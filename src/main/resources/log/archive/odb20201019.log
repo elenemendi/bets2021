@@ -704,3 +704,195 @@ Type domain.Admin is not enhanced.
 [2020-10-19 23:17:26 #22 type.registry] 
 New type java.util.Vector<java.lang.Object>
 
+------------------------------------------------------------------------------------------------------------------------
+
+[2020-10-19 23:41:16 #1 store] 
+Database '/home/elene/Desktop/SI-bazpare/bets2021_zaharra-master.zip_expanded/bets2021_zaharra-master/Bets2021/src/main/resources/bets.temp' is opened by 4944@hppaviliongaming
+
+[2020-10-19 23:41:16 #2 type.registry] 
+New type domain.Event
+
+[2020-10-19 23:41:16 #3 type] 
+Type domain.Event is not enhanced.
+
+[2020-10-19 23:41:16 #4 type.registry] 
+New type domain.Bet
+
+[2020-10-19 23:41:16 #5 type.registry] 
+New type java.util.Vector<domain.Bet>
+
+[2020-10-19 23:41:16 #6 type.registry] 
+New type domain.Question
+
+[2020-10-19 23:41:16 #7 type.registry] 
+New type java.util.Vector<domain.Question>
+
+[2020-10-19 23:41:16 #8 type] 
+Type domain.Bet is not enhanced.
+
+[2020-10-19 23:41:16 #9 type.registry] 
+New type domain.Fee
+
+[2020-10-19 23:41:16 #10 type.registry] 
+New type domain.User
+
+[2020-10-19 23:41:16 #11 type.registry] 
+New type domain.RegisteredUser
+
+[2020-10-19 23:41:16 #12 type] 
+Type domain.Question is not enhanced.
+
+[2020-10-19 23:41:16 #13 type.registry] 
+New type java.util.Vector<domain.Fee>
+
+[2020-10-19 23:41:16 #14 type] 
+Type domain.Fee is not enhanced.
+
+[2020-10-19 23:41:16 #15 type] 
+Type domain.User is not enhanced.
+
+[2020-10-19 23:41:16 #16 type] 
+Type domain.RegisteredUser is not enhanced.
+
+[2020-10-19 23:41:16 #17 type.registry] 
+New type domain.Movement
+
+[2020-10-19 23:41:16 #18 type.registry] 
+New type java.util.Vector<domain.Movement>
+
+[2020-10-19 23:41:16 #19 type] 
+Type domain.Movement is not enhanced.
+
+[2020-10-19 23:41:16 #20 type.registry] 
+New type java.util.Vector<java.lang.Object>
+
+[2020-10-19 23:41:16 #21 type.registry] 
+New type domain.Admin
+
+[2020-10-19 23:41:16 #22 type] 
+Type domain.Admin is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2020-10-19 23:59:20 #1 store] 
+Database '/home/elene/Desktop/SI-bazpare/bets2021_zaharra-master.zip_expanded/bets2021_zaharra-master/Bets2021/src/main/resources/bets.temp' is opened by 5747@hppaviliongaming
+
+[2020-10-19 23:59:20 #2 type.registry] 
+New type domain.Event
+
+[2020-10-19 23:59:20 #3 type] 
+Type domain.Event is not enhanced.
+
+[2020-10-19 23:59:20 #4 type.registry] 
+New type domain.Bet
+
+[2020-10-19 23:59:20 #5 type.registry] 
+New type java.util.Vector<domain.Bet>
+
+[2020-10-19 23:59:20 #6 type.registry] 
+New type domain.Question
+
+[2020-10-19 23:59:20 #7 type.registry] 
+New type java.util.Vector<domain.Question>
+
+[2020-10-19 23:59:20 #8 type] 
+Type domain.Bet is not enhanced.
+
+[2020-10-19 23:59:20 #9 type.registry] 
+New type domain.Fee
+
+[2020-10-19 23:59:20 #10 type.registry] 
+New type domain.User
+
+[2020-10-19 23:59:20 #11 type.registry] 
+New type domain.RegisteredUser
+
+[2020-10-19 23:59:20 #12 type] 
+Type domain.Question is not enhanced.
+
+[2020-10-19 23:59:20 #13 type.registry] 
+New type java.util.Vector<domain.Fee>
+
+[2020-10-19 23:59:20 #14 type] 
+Type domain.Fee is not enhanced.
+
+[2020-10-19 23:59:20 #15 type] 
+Type domain.User is not enhanced.
+
+[2020-10-19 23:59:20 #16 type] 
+Type domain.RegisteredUser is not enhanced.
+
+[2020-10-19 23:59:20 #17 type.registry] 
+New type domain.Movement
+
+[2020-10-19 23:59:20 #18 type.registry] 
+New type java.util.Vector<domain.Movement>
+
+[2020-10-19 23:59:20 #19 type] 
+Type domain.Movement is not enhanced.
+
+[2020-10-19 23:59:20 #20 type.registry] 
+New type java.util.Vector<java.lang.Object>
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2020-10-19 23:59:43 #1 store] 
+Database '/home/elene/Desktop/SI-bazpare/bets2021_zaharra-master.zip_expanded/bets2021_zaharra-master/Bets2021/src/main/resources/bets.temp' is opened by 5798@hppaviliongaming
+
+[2020-10-19 23:59:43 #2 type.registry] 
+New type domain.User
+
+[2020-10-19 23:59:43 #3 type.registry] 
+New type domain.RegisteredUser
+
+[2020-10-19 23:59:43 #4 type] 
+Type domain.User is not enhanced.
+
+[2020-10-19 23:59:43 #5 type] 
+Type domain.RegisteredUser is not enhanced.
+
+[2020-10-19 23:59:43 #6 type.registry] 
+New type domain.Movement
+
+[2020-10-19 23:59:43 #7 type.registry] 
+New type java.util.Vector<domain.Movement>
+
+[2020-10-19 23:59:43 #8 type.registry] 
+New type domain.Bet
+
+[2020-10-19 23:59:43 #9 type.registry] 
+New type java.util.Vector<domain.Bet>
+
+[2020-10-19 23:59:43 #10 type] 
+Type domain.Movement is not enhanced.
+
+[2020-10-19 23:59:43 #11 type] 
+Type domain.Bet is not enhanced.
+
+[2020-10-19 23:59:43 #12 type.registry] 
+New type domain.Fee
+
+[2020-10-19 23:59:43 #13 type] 
+Type domain.Fee is not enhanced.
+
+[2020-10-19 23:59:43 #14 type.registry] 
+New type domain.Question
+
+[2020-10-19 23:59:43 #15 type] 
+Type domain.Question is not enhanced.
+
+[2020-10-19 23:59:43 #16 type.registry] 
+New type java.util.Vector<domain.Fee>
+
+[2020-10-19 23:59:43 #17 type.registry] 
+New type domain.Event
+
+[2020-10-19 23:59:43 #18 type] 
+Type domain.Event is not enhanced.
+
+[2020-10-19 23:59:43 #19 type.registry] 
+New type java.util.Vector<domain.Question>
+
+[2020-10-19 23:59:43 #20 type.registry] 
+New type java.util.Vector<java.lang.Object>
+
