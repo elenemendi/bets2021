@@ -10,6 +10,8 @@ import javax.persistence.Persistence;
 
 import configuration.ConfigXML;
 import domain.Event;
+import domain.RegisteredUser;
+import domain.User;
 
 public class TestDataAccess {
 	protected  EntityManager  db;
@@ -78,5 +80,26 @@ public class TestDataAccess {
 				}
 				return ev;
 	    }
+		
+		public boolean removeRegisteredUser(RegisteredUser u) {
+			
+			User us = db.find(RegisteredUser.class, u.getUsername());
+			if(us!=null) {
+				db.getTransaction().begin();
+				db.remove(us);
+				db.getTransaction().commit();
+				return true;
+			}else {
+				return false;
+			}
+		}
+		
+		public User insertRegisteredUser(RegisteredUser u) {
+			db.getTransaction().begin();
+			db.persist(u);
+			db.getTransaction().commit();
+			return u;
+
+		}
 }
 

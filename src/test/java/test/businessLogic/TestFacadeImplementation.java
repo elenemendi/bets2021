@@ -5,6 +5,9 @@ import java.util.Date;
 
 import configuration.ConfigXML;
 import domain.Event;
+import domain.RegisteredUser;
+import domain.User;
+import exceptions.IncorrectLogin;
 import test.dataAccess.TestDataAccess;
 
 public class TestFacadeImplementation {
@@ -35,5 +38,22 @@ public class TestFacadeImplementation {
 			return o;
 
 		}
+		
+		public User addUser(RegisteredUser u) {
+			dbManagerTest.open();
+			User us= dbManagerTest.insertRegisteredUser(u);
+			dbManagerTest.close();
+			return us;
+		}
+		
+		
+		public boolean removeUser(RegisteredUser u) {
+			dbManagerTest.open();
+			boolean b = dbManagerTest.removeRegisteredUser(u);
+			dbManagerTest.close();
+			return b;
+		}
+		
+	
 
 }
