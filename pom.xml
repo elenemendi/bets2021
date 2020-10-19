@@ -48,7 +48,7 @@
     <maven.compiler.source>1.8</maven.compiler.source>
         <sonar.organization>elenemendi</sonar.organization>
     <sonar.host.url>https://sonarcloud.io</sonar.host.url>  
-    <sonar.login>4d285e34a17d4f4486ca70b157425ec032d53e6f</sonar.login> 
+    <sonar.login>843f25ecce2881baf074a21458eaa736af88a274</sonar.login> 
 </properties>
 
 <!-- https://mvnrepository.com/artifact/junit/junit -->
