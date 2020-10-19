@@ -1,0 +1,8 @@
+addons:
+  sonarcloud:
+    organization: "elenemendi"
+    token: "843f25ecce2881baf074a21458eaa736af88a274"
+script:
+#the following comman line builds the project, runs te thests with coverage
+#and then execute te sonarcloud analysis
+- mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent org.jacoco:jacoco-maven-plugin:report install sonar:sonar 
