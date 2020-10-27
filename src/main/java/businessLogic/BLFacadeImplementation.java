@@ -141,7 +141,7 @@ public class BLFacadeImplementation implements BLFacade {
 	 */
 	@WebMethod
 	public int login(String username, String password) throws IncorrectLogin {
-
+		
 		dbManager.open(false);
 		User user = dbManager.getUserByUsername(username);
 

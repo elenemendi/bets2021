@@ -19,6 +19,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 @Entity
 public class Event implements Serializable {
 
+	
 	/**
 	 * 
 	 */
@@ -30,11 +31,9 @@ public class Event implements Serializable {
 	private Integer eventNumber;
 	private String description;
 	private Date eventDate;
+	private Vector<Bet> madeBets = new Vector <Bet>();
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private Vector<Question> questions = new Vector<Question>();
-	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	private Vector<Bet> madeBets = new Vector<Bet>();
-	
 	public Event() {
 		super();
 	}
@@ -124,7 +123,7 @@ public class Event implements Serializable {
 	}
 	
 	public Bet removeBet(Bet b) {
-		this.madeBets.remove(b);
+		madeBets.remove(b);
 		return b;
 	}
 	

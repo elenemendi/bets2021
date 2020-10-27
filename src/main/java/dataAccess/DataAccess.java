@@ -37,7 +37,7 @@ import java.util.Comparator;
  * It implements the data access to the objectDb database
  */
 public class DataAccess {
-	protected static EntityManager db;
+	public static EntityManager db;
 	protected static EntityManagerFactory emf;
 
 	ConfigXML c = ConfigXML.getInstance();
@@ -579,14 +579,7 @@ public class DataAccess {
 		 * @param u RegisteredUser where the movement will be stored
 		 */
 		public void createMovement(Movement mov, RegisteredUser u) {
-			RegisteredUser u1 = (RegisteredUser) this.getUserByUsername(u.getUsername());
-			double income = mov.getIncome();
-			double quantity = mov.getQuantity();
-			String description = mov.getDescription();
-			db.getTransaction().begin();
-			u1.addMovement(income, quantity, description);
-			db.persist(u1);
-			db.getTransaction().commit();
+			mov.createMovement(u, this);
 
 		}
 
@@ -596,14 +589,19 @@ public class DataAccess {
 		 * @param s Question where it will be stored
 		 */
 		public void enterResult(Fee f, Question s) {
-			Question q = db.find(Question.class, s.getQuestionNumber());
-			Fee fee = this.getFeeByNumber(f.getFeeNum());
-			s.setResult(f);
-			q.setResult(fee);
+			Question q = setResultOfFee(f, s);
 			db.getTransaction().begin();
 			db.persist(q);
 			db.getTransaction().commit();
 
+		}
+
+		private Question setResultOfFee(Fee f, Question s) {
+			Question q = db.find(Question.class, s.getQuestionNumber());
+			Fee fee = this.getFeeByNumber(f.getFeeNum());
+			s.setResult(f);
+			q.setResult(fee);
+			return q;
 		}
 
 		/**

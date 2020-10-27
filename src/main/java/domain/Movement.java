@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlID;
 import javax.xml.bind.annotation.XmlIDREF;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
+import dataAccess.DataAccess;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -100,6 +100,24 @@ public class Movement implements Serializable {
 
 	public void setUser(RegisteredUser user) {
 		this.user = user;
+	}
+
+
+
+	/**
+	 * Stores a movement on a RegisteredUser on the database
+	 * @param u  RegisteredUser where the movement will be stored
+	 * @param dataAccess
+	 */
+	public void createMovement(RegisteredUser u, DataAccess dataAccess) {
+		RegisteredUser u1 = (RegisteredUser) dataAccess.getUserByUsername(u.getUsername());
+		double income = getIncome();
+		double quantity = getQuantity();
+		String description = getDescription();
+		DataAccess.db.getTransaction().begin();
+		u1.addMovement(income, quantity, description);
+		DataAccess.db.persist(u1);
+		DataAccess.db.getTransaction().commit();
 	}
 	
 	
