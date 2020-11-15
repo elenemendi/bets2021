@@ -33,6 +33,7 @@ public class UserGUI extends JFrame {
 	private JButton queryMovements;
 	private JButton btnTopUsers;
 	private JButton btnReplicateUser;
+	private JButton tableButton;
 
 	/**
 	 * Launch the application.
@@ -85,7 +86,7 @@ public class UserGUI extends JFrame {
 		});
 		//Code for second menu button
 		btnLogOut = new JButton(ResourceBundle.getBundle("Etiquetas").getString("LogOut"));
-		btnLogOut.setBounds(199, 406, 171, 37);
+		btnLogOut.setBounds(204, 451, 171, 37);
 		contentPane.add(btnLogOut);
 		btnLogOut.addActionListener(new ActionListener() {
 
@@ -176,7 +177,16 @@ public class UserGUI extends JFrame {
 			
 		});
 		contentPane.add(btnReplicateUser);
-
-
+		
+		tableButton = new JButton("table of " + u.getUsername());
+		tableButton.setBounds(138, 413, 310, 25);
+		contentPane.add(tableButton);
+		tableButton.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+			BetTableGUI a = new BetTableGUI(selectedUser);
+			a.setVisible(true);
+			
+		}
+		});
 	}
 }
