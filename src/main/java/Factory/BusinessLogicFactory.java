@@ -13,21 +13,22 @@ import dataAccess.DataAccess;
 import gui.MainGUI;
 
 public class BusinessLogicFactory {
-	public static BLFacade createBusinessLogic (ConfigXML c) {
+	public static BLFacade createBusinessLogic (boolean isLocal) {
 		try {
 
 			BLFacade appFacadeInterface;
-			if (c.isBusinessLogicLocal()) {
+			if (isLocal) {
+				ConfigXML c = ConfigXML.getInstance();
 				System.out.println("sartu"+c.getDataBaseOpenMode().equals("initialize"));
 
 				DataAccess da= new DataAccess(c.getDataBaseOpenMode().equals("initialize"));
 				appFacadeInterface=new BLFacadeImplementation(da);
 			}
 			else { //If remote
-				String serviceName= "http://"+c.getBusinessLogicNode() +":"+ c.getBusinessLogicPort()+"/ws/"+c.getBusinessLogicName()+"?wsdl";
+				//String serviceName= "http://"+c.getBusinessLogicNode() +":"+ c.getBusinessLogicPort()+"/ws/"+c.getBusinessLogicName()+"?wsdl";
 
-				//URL url = new URL("http://localhost:9999/ws/ruralHouses?wsdl");
-				URL url = new URL(serviceName);
+				URL url = new URL("http://localhost:9999/ws/ruralHouses?wsdl");
+				//URL url = new URL(serviceName);
 				//1st argument refers to wsdl document above
 				//2nd argument is service name, refer to wsdl document above
 				//		        QName qname = new QName("http://businessLogic/", "FacadeImplementationWSService");

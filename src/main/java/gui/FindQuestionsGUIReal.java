@@ -7,6 +7,8 @@ import com.toedter.calendar.JCalendar;
 
 import domain.Event;
 import domain.Question;
+import iterator.ExtendedIterator;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -121,12 +123,13 @@ public class FindQuestionsGUIReal extends JFrame {
 
 						BLFacade facade=MainGUI.getBusinessLogic();
 
-						List<Event> events=facade.getEvents(firstDay);
+						ExtendedIterator<Event> events=facade.getEvents(firstDay);
 
-						if (events.isEmpty() ) jLabelEvents.setText(ResourceBundle.getBundle("Etiquetas").getString("NoEvents")+ ": "+dateformat1.format(calendarMio.getTime()));
+						if (!events.hasNext()) jLabelEvents.setText(ResourceBundle.getBundle("Etiquetas").getString("NoEvents")+ ": "+dateformat1.format(calendarMio.getTime()));
 						else jLabelEvents.setText(ResourceBundle.getBundle("Etiquetas").getString("Events")+ ": "+dateformat1.format(calendarMio.getTime()));
-						for (domain.Event ev:events){
-							
+						
+						while(events.hasNext()) {
+							domain.Event ev = (Event)events.next();
 							Vector<Object> row = new Vector<Object>();
 
 							System.out.println("Events "+ev);
@@ -134,8 +137,9 @@ public class FindQuestionsGUIReal extends JFrame {
 							row.add(ev.getEventNumber());
 							row.add(ev.getDescription());
 							row.add(ev); // ev object added in order to obtain it with tableModelEvents.getValueAt(i,2)
-							tableModelEvents.addRow(row);		
+							tableModelEvents.addRow(row);	
 						}
+						
 						tableEvents.getColumnModel().getColumn(0).setPreferredWidth(25);
 						tableEvents.getColumnModel().getColumn(1).setPreferredWidth(268);
 						tableEvents.getColumnModel().removeColumn(tableEvents.getColumnModel().getColumn(2)); // not shown in JTable

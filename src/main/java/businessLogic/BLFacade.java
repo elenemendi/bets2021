@@ -38,6 +38,7 @@ import exceptions.SameUser;
 import exceptions.Underage;
 import exceptions.UnspecifiedMovement;
 import exceptions.WinnerAlreadyExist;
+import iterator.ExtendedIterator;
 
 import javax.jws.WebMethod;
 import javax.jws.WebService;
@@ -72,7 +73,7 @@ public interface BLFacade  {
 	 * @param date in which events are retrieved
 	 * @return collection of events
 	 */
-	@WebMethod public List<Event> getEvents(Date date);
+	@WebMethod public ExtendedIterator getEvents(Date date);
 
 	/**
 	 * This method retrieves from the database the dates a month for which there are events

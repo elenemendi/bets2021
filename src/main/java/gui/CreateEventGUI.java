@@ -31,6 +31,7 @@ import domain.Event;
 import exceptions.EmptyDescription;
 import exceptions.ExistingEvent;
 import exceptions.InvalidDate;
+import iterator.ExtendedIterator;
 
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -111,23 +112,23 @@ public class CreateEventGUI extends JFrame {
 						
 						BLFacade facade=MainGUI.getBusinessLogic();
 
-						List<domain.Event> events=facade.getEvents(selectedDate);
+						ExtendedIterator<domain.Event> events=facade.getEvents(selectedDate);
 						
-						if (events.isEmpty()) {
+						if (!events.hasNext()) {
 							lblDateEvent.setText(ResourceBundle.getBundle("Etiquetas").getString("NoEvents")+": "+ dateFormat1.format(calendar.getTime()));
 							selectedEvent = null;			//If no events on the selected event disable delete button
 							tfDescription.setText("");
 							
 						} else {
 							lblDateEvent.setText(ResourceBundle.getBundle("Etiquetas").getString("Events")+": "+ dateFormat1.format(calendar.getTime()));
-							for (domain.Event ev: events) {
+							while (events.hasNext()) {
+								Event ev = (Event) events.next();
 								Vector<Object> row = new Vector<Object>();
 								row.add(ev.getEventNumber());				//Add events to table model by rows
 								row.add(ev.getDescription());
 								row.add(ev);
 								
 								eventsTableModel.addRow(row);
-								
 							}
 							
 						}

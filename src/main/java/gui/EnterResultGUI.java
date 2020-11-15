@@ -42,6 +42,7 @@ import exceptions.InsufficientMoney;
 import exceptions.NotSelectedFee;
 import exceptions.UnspecifiedMovement;
 import exceptions.WinnerAlreadyExist;
+import iterator.ExtendedIterator;
 
 public class EnterResultGUI extends JFrame {
 
@@ -155,15 +156,17 @@ public class EnterResultGUI extends JFrame {
 
 						BLFacade facade = MainGUI.getBusinessLogic();
 
-						List<domain.Event> events = facade.getEvents(firstDay);
+						ExtendedIterator<domain.Event> events = facade.getEvents(firstDay);
 
-						if (events.isEmpty())
+						if (!events.hasNext())
 							jLabelEvents.setText(ResourceBundle.getBundle("Etiquetas").getString("NoEvents") + ": "
 									+ dateformat1.format(calendarMio.getTime()));
 						else
 							jLabelEvents.setText(ResourceBundle.getBundle("Etiquetas").getString("Events") + ": "
 									+ dateformat1.format(calendarMio.getTime()));
-						for (domain.Event ev : events) {
+						
+						while(events.hasNext()) {
+							domain.Event ev = (Event) events.next();
 							Vector<Object> row = new Vector<Object>();
 
 							System.out.println("Events " + ev);
@@ -173,6 +176,7 @@ public class EnterResultGUI extends JFrame {
 							row.add(ev); // ev object added in order to obtain it with tableModelEvents.getValueAt(i,2)
 							tableModelEvents.addRow(row);
 						}
+						
 						tableEvents.getColumnModel().getColumn(0).setPreferredWidth(25);
 						tableEvents.getColumnModel().getColumn(1).setPreferredWidth(268);
 						tableEvents.getColumnModel().removeColumn(tableEvents.getColumnModel().getColumn(2)); // not

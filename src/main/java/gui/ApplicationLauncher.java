@@ -48,17 +48,13 @@ public class ApplicationLauncher {
 			
 			BLFacade appFacadeInterface;
 			UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
-			appFacadeInterface= BusinessLogicFactory.createBusinessLogic(c);
+			appFacadeInterface= BusinessLogicFactory.createBusinessLogic(c.isBusinessLogicLocal());
 			MainGUI.setBussinessLogic(appFacadeInterface);
-				
-				
-				
+
 			}catch (Exception e) {	
 			System.out.println("Error in ApplicationLauncher: "+e.toString());
 		}
 		//a.pack();
-
-
 	}
 
 }

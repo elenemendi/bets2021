@@ -139,7 +139,7 @@ public class CreateBetGUI extends JFrame {
 						tableModelEvents.setColumnCount(3);
 						
 						BLFacade facade = MainGUI.getBusinessLogic();
-						List<domain.Event> events = facade.getEvents(selectedDate);
+						List<domain.Event> events = (List<Event>) facade.getEvents(selectedDate);
 						if (events.isEmpty()) System.out.println("No events on this date.");
 						else {
 							for (domain.Event ev: events) {

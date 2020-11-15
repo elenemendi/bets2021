@@ -12,11 +12,13 @@ import com.toedter.calendar.JCalendar;
 
 import businessLogic.BLFacade;
 import configuration.UtilDate;
+import domain.Event;
 import domain.Fee;
 import domain.Question;
 import exceptions.EmptyDescription;
 import exceptions.EventFinished;
 import exceptions.ExistingFee;
+import iterator.ExtendedIterator;
 
 import javax.swing.JScrollPane;
 import java.awt.Rectangle;
@@ -123,17 +125,18 @@ public class CreateFeeGUI extends JFrame {
 						
 						BLFacade facade = MainGUI.getBusinessLogic();
 						
-						List<domain.Event> events = facade.getEvents(date);
-						if (events.isEmpty()) System.out.println("No events on this date.");
+						ExtendedIterator<domain.Event> events = facade.getEvents(date);
+						if (!events.hasNext()) System.out.println("No events on this date.");
 						else {
-							for (domain.Event ev: events) {
+							
+							while(events.hasNext()) {
+								Event ev = (Event) events.next();
 								Vector<Object> row = new Vector<Object>();
 								
 								row.add(ev.getEventNumber());
 								row.add(ev.getDescription());
 								row.add(ev);
 								tableModelEvents.addRow(row);
-								
 							}
 							tableEvents.getColumnModel().getColumn(0).setPreferredWidth(25);
 							tableEvents.getColumnModel().getColumn(1).setPreferredWidth(268);

@@ -49,6 +49,7 @@ import exceptions.SameUser;
 import exceptions.Underage;
 import exceptions.UnspecifiedMovement;
 import exceptions.WinnerAlreadyExist;
+import iterator.ExtendedIterator;
 
 /**
  * It implements the business logic as a web service.
@@ -108,9 +109,9 @@ public class BLFacadeImplementation implements BLFacade {
 	 * @return collection of events
 	 */
 	@WebMethod
-	public List<Event> getEvents(Date date) {
+	public ExtendedIterator<Event> getEvents(Date date) {
 		dbManager.open(false);
-		Vector<Event> events = dbManager.getEvents(date);
+		 ExtendedIterator<Event> events = dbManager.getEvents(date);
 		dbManager.close();
 		return events;
 	}
@@ -324,15 +325,15 @@ public class BLFacadeImplementation implements BLFacade {
 
 		}
 
-		List<Event> events = this.getEvents(date);
-		for (Event ev : events) {
-			if (ev.getDescription().equals(description)) {
-				throw new ExistingEvent();
+		ExtendedIterator<Event> events =  this.getEvents(date);
+		
+			while(events.hasNext()) {
+				if (((Bet) events.next()).getDescription().equals(description)) {
+					throw new ExistingEvent();
 
+				}
 			}
-
-		}
-
+		
 		Event event = new Event(eventNumber, description, date);
 
 		dbManager.open(false);
